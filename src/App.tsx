@@ -1,12 +1,12 @@
 // import BarraLateral from "./componentes/menuLateral/barraLateral";
 import Autor from "./paginas/autor";
 
-
 function App() {
   return (
     <div className="App">
-
-      <Autor></Autor>
+      <div className="wrapper">
+        <Autor></Autor>
+      </div>
       {/* <BarraLateral /> */}
     </div>
   );

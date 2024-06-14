@@ -2,7 +2,6 @@ import DataTable from "react-data-table-component";
 import { useNavigate } from "react-router-dom";
 import { excluirAutor, useAutoresPorNome } from "../../../hooks/useAutores";
 
-
 interface GridProps {
   nome: string | undefined;
 }
@@ -13,37 +12,36 @@ const GridAutor: React.FC<GridProps> = ({ nome }) => {
   const listaAutores = useAutoresPorNome({ nome });
 
   const clickEditar = (id: number) => {
-    navigate(`/autor/edicao/${id}`); 
-  }
+    navigate(`/autor/edicao/${id}`);
+  };
 
   async function clickExcluir(id: number) {
     if (id) {
-      excluirAutor({id});     
+      excluirAutor({ id });
     }
-}  
+  }
 
   const customStyles = {
     headRow: {
       style: {
-        backgroundColor: 'rgb(151 160 166)',   
-        minHeight: '28 px',        
+        backgroundColor: "rgb(151 160 166)",
+        minHeight: "28 px",
       },
     },
     headCells: {
-      style: 
-      {
-        fontSize: '14px',
+      style: {
+        fontSize: "14px",
         fontFamily: "sans-serif",
-        color: 'rgba(255, 255, 255, 1)',
+        color: "rgba(255, 255, 255, 1)",
       },
     },
     cells: {
-        style: {
-            backgroundColor: 'rgba(255, 255, 255, 1)',
-            width: "100%"
-        }
-    }
-  };   
+      style: {
+        backgroundColor: "rgba(255, 255, 255, 1)",
+        width: "100%",
+      },
+    },
+  };
 
   const colunas = [
     {
@@ -112,8 +110,15 @@ const GridAutor: React.FC<GridProps> = ({ nome }) => {
     {
       cell: (row: { id: any }) => (
         <>
-          <button onClick={() => clickEditar(row.id)} className="btn-editar">Editar</button>
-          <button onClick={() => clickExcluir(row.id)} className="btn-excluir m-left">Excluir</button>
+          <button onClick={() => clickEditar(row.id)} className="btn-editar">
+            Editar
+          </button>
+          <button
+            onClick={() => clickExcluir(row.id)}
+            className="btn-excluir m-left"
+          >
+            Excluir
+          </button>
         </>
       ),
       backgroundColor: "rgba(237, 245, 248, 1)",
@@ -140,7 +145,6 @@ const GridAutor: React.FC<GridProps> = ({ nome }) => {
         paginationServer={true}
         fixedHeader={true}
         customStyles={customStyles}
-        
       />
     </div>
   );

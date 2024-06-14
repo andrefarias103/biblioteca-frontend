@@ -10,9 +10,9 @@ export const AppRoutes: React.FC = () => {
       <>      
         <Sidebar />
         <Routes>            
-          <Route element = <Autor></Autor> path="/autor" />    
+          <Route element = <Autor/> path="/autor" />    
           <Route Component={AutorForm} path="/autor/cadastro" />  
-          <Route Component={AutorForm} path="/autor/edicao/:id" />   
+          <Route Component={AutorForm} path="/autor/edicao/:id" />    
           {/* <Route element = <Login></Login> path="/" />
           <Route element = <Login></Login> path="/login" />
           <Route element = <Logout></Logout> path="/logout" />
