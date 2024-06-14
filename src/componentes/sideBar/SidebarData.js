@@ -11,34 +11,47 @@ export const SidebarData = [
  
         subNav: [
             {
-                title: "Usuários",
-                path: "/usuarios/",
+                title: "Autores",
+                path: "/autores/",
                 icon: <IoIcons.IoIosCreate />,
             },
             {
-                title: "Categorias",
-                path: "/categorias/",
+                title: "Livros",
+                path: "/livros/",
                 icon: <IoIcons.IoIosCreate />,
             },
             {
-                title: "Pautas",
-                path: "/pautas/",
+                title: "Locatários",
+                path: "/locatarios/",
                 icon: <IoIcons.IoIosCreate />,
             },            
         ],
     },
     {
-        title: "Votação",
-        path: "/categorias/pautas/",
+        title: "Fazer a Reserva",
+        path: "/livros/reserva/",
         icon: <FaIcons.FaCheck />,
     },
     {
-        title: "Detalhes",
-        path: "/resultado/",
+        title: "Consultar",
+        path: "/livros/consulta/",
         icon: <FaIcons.FaInfoCircle />,
  
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpened: <RiIcons.RiArrowUpSFill />,
+
+        subNav: [
+            {
+                title: "Livros Reservados",
+                path: "/reservados/",
+                icon: <IoIcons.IoIosCreate />,
+            },
+            {
+                title: "Livros Disponíveis",
+                path: "/disponiveis/",
+                icon: <IoIcons.IoIosCreate />,
+            }, 
+        ],        
     },
     {
         title: "Sair",

@@ -1,10 +1,10 @@
 .nav {
-    background-color: #adc7ef;
-    height: 80px;
+    background-color: #27355d;
+    height: 60px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    border-bottom: 2px solid black;
+    border: 2px solid black;
 }
 
 .navIcon {
@@ -17,7 +17,7 @@
 }
 
 .sideBarNav {
-    background: #2e3b74;
+    background: #51595d;
     width: 250px;
     height: 100vh;
     display: flex;
@@ -36,3 +36,11 @@
 .sidebar-wrap {
     width: 100%; 
 }
+
+h1 {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    width: 100%;
+   } 
