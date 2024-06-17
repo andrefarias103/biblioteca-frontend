@@ -17,7 +17,7 @@ const SubMenu = ({ item }) => {
             >
                 <div>
                     {item.icon}
-                    <label>
+                    <label> 
                         {item.title}
                     </label>
                 </div>
@@ -38,7 +38,7 @@ const SubMenu = ({ item }) => {
                             key={index}
                         >
                             {item.icon}
-                            <label >
+                            <label>
                                 {item.title}
                             </label>
                         </Link>

@@ -47,19 +47,19 @@ const AutorForm = () => {
                 <div className={style.AppStyle}>
                     <div className={style.container}>
                         <div className={style.areaCampos}>
-                            <label>Nome:</label>
+                            <label className={style.labelForm}>Nome:</label>
                             <input type="text" name="nome" value={autor.nome}  onChange ={handleChange}></input>
                         </div>
                         <div className={style.areaCampos}>
-                            <label>CPF:</label>
+                            <label className={style.labelForm}>CPF:</label>
                             <input type="text" name="cpf" value={autor.cpf}  onChange ={handleChange}></input>
                         </div>          
                         <div className={style.areaCampos}>
-                            <label>Ano de Nascimento:</label>
+                            <label className={style.labelForm}>Ano de Nascimento:</label>
                             <input type="number" min="0" max="100"  name="anoDeNascimento" value={autor.anoDeNascimento} onChange ={handleChange}></input>
                         </div>                 
                         <div className={style.areaCampos}>
-                            <label>Sexo:</label>
+                            <label className={style.labelForm}>Sexo:</label>
                             <select name="sexo" value={autor.sexo} onChange={handleChange}  >
                                 <option value={"0"}> Feminino </option>
                                 <option value={"1"}> Masculino </option>

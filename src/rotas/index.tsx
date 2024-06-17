@@ -2,9 +2,13 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import AutorForm from "../componentes/form/Autor/autorForm";
 import LivroForm from "../componentes/form/Livro/livroForm";
+import LocatarioForm from "../componentes/form/Locatario/locatarioForm";
 import Sidebar from "../componentes/sideBar/Sidebar";
 import Autor from "../paginas/autor";
 import Livro from "../paginas/livro";
+import LivroDisponiveis from "../paginas/livro/livrosDisponiveis";
+import LivroReservados from "../paginas/livro/livrosReservados";
+import Locatario from "../paginas/locatario";
 
 export const AppRoutes: React.FC = () => {
 
@@ -17,22 +21,12 @@ export const AppRoutes: React.FC = () => {
           <Route Component={AutorForm} path="/autor/edicao/:id" />   
           <Route element = <Livro/> path="/livro" />  
           <Route Component={LivroForm} path="/livro/cadastro" />  
-          <Route Component={LivroForm} path="/livro/edicao/:id" />                     
-          {/* <Route element = <Login></Login> path="/" />
-          <Route element = <Login></Login> path="/login" />
-          <Route element = <Logout></Logout> path="/logout" />
-          <Route element = <PautaPorCategoria></PautaPorCategoria> path="/categorias/pautas/"  />
-          <Route element = <Usuario></Usuario>  path="/usuarios/" />
-          <Route element = {<RequisitosAutenticacao><UsuarioIncluir /></RequisitosAutenticacao>}  path="/usuarios/adicionar/" />
-          <Route element = {<RequisitosAutenticacao><UsuarioEditor /></RequisitosAutenticacao>}  path="/usuarios/editar/:id" />  
-          <Route element = <App></App>  path="/categorias/" /> 
-          <Route element = {<RequisitosAutenticacao><CategoriaIncluir /></RequisitosAutenticacao>}  path="/categorias/adicionar/" />
-          <Route element = {<RequisitosAutenticacao><CategoriaEditor /></RequisitosAutenticacao>}  path="/categorias/editar/:id" />
-          <Route element = <Pauta></Pauta>  path="/pautas/" />
-          <Route element = {<RequisitosAutenticacao><PautaIncluir /></RequisitosAutenticacao>}   path="/pautas/adicionar/" />
-          <Route element = {<RequisitosAutenticacao><PautaEditor /></RequisitosAutenticacao>}   path="/pautas/editar/:id" />   
-          <Route element = <Votacao></Votacao>  path="/votacoes/:id" />       
-          <Route element = <ResultadoApuracao></ResultadoApuracao> path="/resultado/"  />  */}
+          <Route Component={LivroForm} path="/livro/edicao/:id" />           
+          <Route element = <Locatario/> path="/locatario" />  
+          <Route Component={LocatarioForm} path="/locatario/cadastro" />  
+          <Route Component={LocatarioForm} path="/locatario/edicao/:id" />                
+          <Route element = <LivroReservados/> path="/livro/reservados" />           
+          <Route element = <LivroDisponiveis/> path="/livro/disponiveis" />    
         </Routes>
       </>
   )

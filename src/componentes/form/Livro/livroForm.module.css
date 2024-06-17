@@ -23,7 +23,7 @@
     width: 100%;
     gap: 3px;
 }
-label {
+.labelForm {
     display: flex;
     justify-content: flex-end;
     font-family: 'sans-serif';

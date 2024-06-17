@@ -116,19 +116,19 @@ const LivroForm = () => {
                 <div className={style.AppStyle}>
                     <div className={style.container}>
                         <div className={style.areaCampos}>
-                            <label>Nome:</label>
+                            <label className={style.labelForm}>Nome:</label>
                             <input type="text" name="nome" value={livro.nome}  onChange = {handleChange}></input>
                         </div>
                         <div className={style.areaCampos}>
-                            <label>ISBN:</label>
+                            <label className={style.labelForm}>ISBN:</label>
                             <input type="text" name="isbn" value={livro.isbn}  onChange = {handleChange}></input>
                         </div>          
                         <div className={style.areaCampos}>
-                            <label>Data de Publicação:</label>
+                            <label className={style.labelForm}>Data de Publicação:</label>
                             <input type="text" min="0" max="100"  name="dataDePublicacao" value={livro.dataDePublicacao} onChange = {handleChange}></input>
                         </div>      
                         <div className={style.areaCampos}>
-                            <label>Autores:</label>
+                            <label className={style.labelForm}>Autores:</label>
                             <CheckBoxList value={autoresSelecionados} items={items} onChange={(items:ICheckBoxItem[]) => handleAutoresChange(items)} ></CheckBoxList>
                         </div>                                                                                
                     </div>

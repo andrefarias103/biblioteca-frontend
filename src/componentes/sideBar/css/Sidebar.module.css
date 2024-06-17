@@ -10,15 +10,16 @@
 .navIcon {
     margin-left: 2rem;
     font-size: 2rem;
-    height: 80px;
+    height: 60px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    width: 100px;
 }
 
 .sideBarNav {
     background: #51595d;
-    width: 250px;
+    width: 300px;
     height: 100vh;
     display: flex;
     justify-content: center;

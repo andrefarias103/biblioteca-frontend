@@ -34,7 +34,6 @@ export const SidebarData = [
     },
     {
         title: "Consultar",
-        path: "/livro/consulta/",
         icon: <FaIcons.FaInfoCircle />,
  
         iconClosed: <RiIcons.RiArrowDownSFill />,
@@ -43,12 +42,12 @@ export const SidebarData = [
         subNav: [
             {
                 title: "Livros Reservados",
-                path: "/reservados/",
+                path: "/livro/reservados/",
                 icon: <IoIcons.IoIosCreate />,
             },
             {
                 title: "Livros Disponíveis",
-                path: "/disponiveis/",
+                path: "/livro/disponiveis/",
                 icon: <IoIcons.IoIosCreate />,
             }, 
         ],        
