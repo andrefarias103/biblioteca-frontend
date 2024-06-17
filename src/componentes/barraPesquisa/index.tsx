@@ -23,7 +23,7 @@ const BarraDePesquisa: FC<BarraDePesquisaProps> = ( {
     {
     const [entidadeFiltro, setEntidadeFiltro] = useState('');
 
-    const handleEntidadeChange = (event: { target: { value: any } }) => {            
+    const handleEntidadeChange = (event: { target: { value: any } }) => { 
         setEntidadeFiltro(event.target.value);
     }
 
@@ -35,8 +35,7 @@ const BarraDePesquisa: FC<BarraDePesquisaProps> = ( {
                         type="text" 
                         className={style.textBox} 
                         onChange={handleEntidadeChange} 
-                        value={entidadeFiltro}  >
-                
+                        value={entidadeFiltro}  >                
                     </input>
                 <LinkCadastrar to={linkPagina}>Cadastrar</LinkCadastrar>
             </div>

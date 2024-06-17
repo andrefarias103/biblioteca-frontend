@@ -1,5 +1,5 @@
 import DataTable from "react-data-table-component";
-import { useLivrosPorNome } from "../../../hooks/useLivros";
+import { useLivrosReservadosPorNome } from "../../../hooks/useLivros";
 
 interface GridProps {
   nome: string;
@@ -7,7 +7,7 @@ interface GridProps {
 
 const GridLivroReservados: React.FC<GridProps> = ({ nome }) => {
 
-  const listaLivros = useLivrosPorNome({ nome });
+  const listaLivros = useLivrosReservadosPorNome({ nome });
 
   const customStyles = {
     headRow: {

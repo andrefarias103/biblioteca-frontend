@@ -1,6 +1,6 @@
 import DataTable from "react-data-table-component";
 import { useNavigate } from "react-router-dom";
-import { useLivrosPorNome } from "../../../hooks/useLivros";
+import { useLivrosDisponiveisPorNome } from "../../../hooks/useLivros";
 
 interface GridProps {
   nome: string;
@@ -9,8 +9,7 @@ interface GridProps {
 const GridLivroDisponiveis: React.FC<GridProps> = ({ nome }) => {
   const navigate = useNavigate();
 
-  const listaLivros = useLivrosPorNome({ nome });
-
+  const listaLivros = useLivrosDisponiveisPorNome({ nome });
 
   const clickEditar = (id: string) => {
     navigate(`/livro/reserva/${id}`);

@@ -3,12 +3,13 @@ export interface IDadosLivro {
     nome: string;
     isbn: string;
     dataDePublicacao: string;
-    autorPorLivros: string[];
-    // autorPorLivros: {
-    //     autorId: string,
-    //     livroId: string;
-    //     autor: { id: string;
-    //              nome: string;
-    //     }
-    // }[];
+    // autorPorLivros: string[];
+    autorPorLivros: { 
+        autorId: string;
+        livroId: string;
+        autor: {
+                id: string;
+                nome: string;
+        }
+    }[];
 }
