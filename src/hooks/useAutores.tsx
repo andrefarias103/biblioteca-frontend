@@ -101,7 +101,6 @@ export const useAutoresPorNome = ({ nome } : { nome: string | undefined}) => {
           .then((resp) => resp.json())
           .then((data) => setAutores(data));               
    }, [nome]);
-
    return listaAutores;    
 };
 
@@ -111,4 +110,5 @@ export async function autorPorid(id: string) {
     .catch(err => console.log(err));
   return resposta;
 }
+
 

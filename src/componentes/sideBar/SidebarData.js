@@ -12,29 +12,29 @@ export const SidebarData = [
         subNav: [
             {
                 title: "Autores",
-                path: "/autores/",
+                path: "/autor/",
                 icon: <IoIcons.IoIosCreate />,
             },
             {
                 title: "Livros",
-                path: "/livros/",
+                path: "/livro/",
                 icon: <IoIcons.IoIosCreate />,
             },
             {
                 title: "Locatários",
-                path: "/locatarios/",
+                path: "/locatario/",
                 icon: <IoIcons.IoIosCreate />,
             },            
         ],
     },
     {
         title: "Fazer a Reserva",
-        path: "/livros/reserva/",
+        path: "/livro/reserva/",
         icon: <FaIcons.FaCheck />,
     },
     {
         title: "Consultar",
-        path: "/livros/consulta/",
+        path: "/livro/consulta/",
         icon: <FaIcons.FaInfoCircle />,
  
         iconClosed: <RiIcons.RiArrowDownSFill />,

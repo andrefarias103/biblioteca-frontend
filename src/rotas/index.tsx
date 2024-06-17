@@ -1,8 +1,10 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import AutorForm from "../componentes/form/Autor/autorForm";
+import LivroForm from "../componentes/form/Livro/livroForm";
 import Sidebar from "../componentes/sideBar/Sidebar";
 import Autor from "../paginas/autor";
+import Livro from "../paginas/livro";
 
 export const AppRoutes: React.FC = () => {
 
@@ -12,7 +14,10 @@ export const AppRoutes: React.FC = () => {
         <Routes>            
           <Route element = <Autor/> path="/autor" />    
           <Route Component={AutorForm} path="/autor/cadastro" />  
-          <Route Component={AutorForm} path="/autor/edicao/:id" />    
+          <Route Component={AutorForm} path="/autor/edicao/:id" />   
+          <Route element = <Livro/> path="/livro" />  
+          <Route Component={LivroForm} path="/livro/cadastro" />  
+          <Route Component={LivroForm} path="/livro/edicao/:id" />                     
           {/* <Route element = <Login></Login> path="/" />
           <Route element = <Login></Login> path="/login" />
           <Route element = <Logout></Logout> path="/logout" />

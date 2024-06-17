@@ -1,23 +1,33 @@
+import { useEffect } from "react";
 import DataTable from "react-data-table-component";
 import { useNavigate } from "react-router-dom";
-import { excluirAutor, useAutoresPorNome } from "../../../hooks/useAutores";
+import { excluirLivro, useLivrosPorNome } from "../../../hooks/useLivros";
 
 interface GridProps {
   nome: string;
 }
 
-const GridAutor: React.FC<GridProps> = ({ nome }) => {
+const GridLivro: React.FC<GridProps> = ({ nome }) => {
   const navigate = useNavigate();
 
-  const listaAutores = useAutoresPorNome({ nome });
+  const listaLivros = useLivrosPorNome({ nome });
 
-  const clickEditar = (id: number) => {
-    navigate(`/autor/edicao/${id}`);
+  useEffect( () => {
+    const timer = setTimeout(() => {
+      console.log("🚀 ~ teste:", listaLivros);
+    }, 
+    5000);
+    return () => clearTimeout(timer);
+  });
+
+
+  const clickEditar = (id: string) => {
+    navigate(`/livro/edicao/${id}`);
   };
 
-  async function clickExcluir(id: number) {
+  async function clickExcluir(id: string) {
     if (id) {
-      excluirAutor({ id });
+      excluirLivro({ id });
     }
   }
 
@@ -66,38 +76,24 @@ const GridAutor: React.FC<GridProps> = ({ nome }) => {
       // },
     },
     {
-      name: "Sexo",
-      selector: (row: { sexo: string }) => row.sexo,
-      sortable: true,
-      width: "8rem",
-      // headCells: {
-      //   style: {
-      //     fontSize: "20px",
-      //     fontWeight: "500",
-      //     textTransform: "uppercase",
-      //     paddingLeft: "0 8px",
-      //   },
-      // },
-    },
-    {
-      name: "Ano de Nascimento",
-      selector: (row: { anoDeNascimento: number }) => row.anoDeNascimento,
-      sortable: true,
-      width: "10rem",
-      // headCells: {
-      //   style: {
-      //     fontSize: "20px",
-      //     fontWeight: "500",
-      //     textTransform: "uppercase",
-      //     paddingLeft: "0 8px",
-      //   },
-      // },
-    },
-    {
-      name: "CPF",
-      selector: (row: { cpf: string }) => row.cpf,
+      name: "Isbn",
+      selector: (row: { isbn: string }) => row.isbn,
       sortable: true,
       width: "20rem",
+      // headCells: {
+      //   style: {
+      //     fontSize: "20px",
+      //     fontWeight: "500",
+      //     textTransform: "uppercase",
+      //     paddingLeft: "0 8px",
+      //   },
+      // },
+    },
+    {
+      name: "Data de Publicação",
+      selector: (row: { dataDePublicacao: string }) => row.dataDePublicacao,
+      sortable: true,
+      width: "15rem",
       // headCells: {
       //   style: {
       //     fontSize: "20px",
@@ -138,7 +134,7 @@ const GridAutor: React.FC<GridProps> = ({ nome }) => {
     <div>
       <DataTable
         columns={colunas}
-        data={listaAutores}
+        data={listaLivros}
         pagination={true}
         paginationComponentOptions={paginationOptions}
         noDataComponent={"Nenhum registro encontrado"}
@@ -150,4 +146,4 @@ const GridAutor: React.FC<GridProps> = ({ nome }) => {
   );
 };
 
-export default GridAutor;
+export default GridLivro;
