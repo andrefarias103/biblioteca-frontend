@@ -114,11 +114,11 @@ export const excluirLocatario = ({ id }: { id: number | undefined }) => {
 export const useLocatariosPorNome = ({ nome } : { nome: string | undefined}) => {
    const [listaLocatarios, setLocatarios] = useState<IDadosLocatario[]>([]);
    useEffect(() => {
-        let complemento_path: string = '/';
+        let complemento_path: string = "nome/";
         if (nome) {
-          complemento_path = `/nome/${nome}`;
-        }
-       fetch(`${baseURL}/locatario${complemento_path}`)
+          complemento_path = `${complemento_path}${nome}`;
+        }        
+       fetch(`${baseURL}/locatario/${complemento_path}`)
           .then((resp) => resp.json())
           .then((data) => setLocatarios(data));               
    }, [nome]);

@@ -12,7 +12,7 @@ const GridLivroDisponiveis: React.FC<GridProps> = ({ nome }) => {
   const listaLivros = useLivrosDisponiveisPorNome({ nome });
 
   const clickEditar = (id: string) => {
-    navigate(`/livro/reserva/${id}`);
+    navigate(`/livro/aluguel/${id}`);
   };
 
   const customStyles = {

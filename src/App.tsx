@@ -1,13 +1,11 @@
-// import BarraLateral from "./componentes/menuLateral/barraLateral";
-import Autor from "./paginas/autor";
+import Aluguel from "./paginas/aluguel";
 
 function App() {
   return (
     <div className="App">
       <div className="wrapper">
-        <Autor></Autor>
+        <Aluguel></Aluguel>
       </div>
-      {/* <BarraLateral /> */}
     </div>
   );
 }

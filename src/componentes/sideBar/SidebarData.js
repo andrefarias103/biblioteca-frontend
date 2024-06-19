@@ -29,7 +29,7 @@ export const SidebarData = [
     },
     {
         title: "Fazer a Reserva",
-        path: "/livro/reserva/",
+        path: "/livro/aluguel/",
         icon: <FaIcons.FaCheck />,
     },
     {

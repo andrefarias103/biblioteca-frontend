@@ -40,14 +40,6 @@ const LivroForm = () => {
     
     useEffect(() => {
 
-        // async function CarregaAutores(id: string) {
-        //     const autor: IDadosAutor = await autorPorid(id);
-        //     setAutoresSelecionadoso([{
-        //         value: autor.id,
-        //         label: autor.nome
-        //     }])                               
-        // }
-
         async function carregarDados() {        
             if (id) {
                 const livro = await livroPorId(id);     
@@ -59,9 +51,6 @@ const LivroForm = () => {
                                                     label: item.autor.nome
                                                 }])  
                     })
-                    
-                    // const nomeDoAutor = livro.autorPorLivros[0].autor.nome;
-                    // console.log("🚀 ~ autor ~ livroForm:", nomeDoAutor);
 
                     setLivro( {                        
                         nome: livro.nome,
@@ -75,15 +64,6 @@ const LivroForm = () => {
         carregarDados();
     }, [id]);    
 
-    // useEffect( () => {
-    //     autores.map( (autor: IDadosAutor) => 
-    //         (                
-    //             setItems( [{ value: autor.id, label: autor.nome}] )
-    //         )
-    //     );
-    // }, [autores]);
-
-
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement | HTMLInputElement> ) => {
         const { name, value } = event.target;
         setLivro( { ...livro, [name]: value });        
@@ -91,6 +71,7 @@ const LivroForm = () => {
 
     const handleAutoresChange = (items:ICheckBoxItem[]) => {        
         const listaAutores = items.map( item => {
+            setAutoresSelecionados(items);
             return item.value; 
         });     
         setLivro( {
