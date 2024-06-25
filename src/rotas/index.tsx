@@ -17,20 +17,24 @@ export const AppRoutes: React.FC = () => {
     <>
       <Sidebar />
       <Routes>
-        <Route element=<Aluguel /> path="/" />
-        <Route element=<Autor /> path="/autor" />
-        <Route Component={AutorForm} path="/autor/cadastro" />
-        <Route Component={AutorForm} path="/autor/edicao/:id" />
-        <Route element=<Livro /> path="/livro" />
-        <Route Component={LivroForm} path="/livro/cadastro" />
-        <Route Component={LivroForm} path="/livro/edicao/:id" />
-        <Route element=<Locatario /> path="/locatario" />
-        <Route Component={LocatarioForm} path="/locatario/cadastro" />
-        <Route Component={LocatarioForm} path="/locatario/edicao/:id" />
-        <Route element=<LivroReservados /> path="/livro/reservados" />
-        <Route element=<LivroDisponiveis /> path="/livro/disponiveis" />
-        <Route element=<Aluguel /> path="/livro/aluguel" />
-        <Route Component={AluguelForm} path="/livro/aluguel/:id" />
+        <Route path="/" element=<Aluguel /> />
+
+        <Route path="/autor" element={<Autor />}>
+          <Route path="cadastro" element={<AutorForm />} />
+          <Route path="edicao/:id" element={<AutorForm />} />
+        </Route>
+        <Route path="/livro" element=<Livro />> 
+          <Route path="/livro/cadastro" Component={LivroForm}  />
+          <Route path="/livro/edicao/:id" Component={LivroForm} />        
+          <Route path="/livro/reservados" element=<LivroReservados /> />
+          <Route path="/livro/disponiveis" element=<LivroDisponiveis /> />          
+          <Route path="/livro/aluguel" element=<Aluguel /> />
+          <Route path="/livro/aluguel/:id" Component={AluguelForm} />          
+        </Route>
+        <Route path="/locatario" element=<Locatario /> >
+          <Route path="/locatario/cadastro" Component={LocatarioForm}  />
+          <Route path="/locatario/edicao/:id" Component={LocatarioForm}  />
+        </Route>
       </Routes>
     </>
   );
