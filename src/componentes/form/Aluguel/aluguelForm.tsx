@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { cadastraAluguel } from "../../../hooks/useAlugueis";
 import {
   livroPorId,
-  useLivrosDisponiveisPorNome,
+  useLivrosPorNome
 } from "../../../hooks/useLivros";
 import { useLocatariosPorNome } from "../../../hooks/useLocatarios";
 import { IDadosLocatario } from "../../../interfaces/IDadosLocatario";
@@ -37,7 +37,7 @@ const AluguelForm = () => {
     []
   );
 
-  const listaLivros = useLivrosDisponiveisPorNome('');
+  const listaLivros = useLivrosPorNome('','');
   const items: ICheckBoxItem[] = listaLivros.map((livro) => ({
     // mapeado todos os livros disponiveis e adicionados na lista
     value: livro.id,

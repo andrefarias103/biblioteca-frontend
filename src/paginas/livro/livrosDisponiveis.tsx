@@ -1,13 +1,13 @@
 import React from "react";
 import BarraDePesquisa from "../../componentes/barraPesquisa";
-import GridLivroDisponiveis from "../../componentes/grid/livro/grid_livro_disponiveis";
+import GridLivro from "../../componentes/grid/livro/grid_livro";
 
 const LivroDisponiveis: React.FC = () => {
   return (
     <BarraDePesquisa
       labelTitulo="Livro"
       linkPagina="/livro/disponiveis"
-      GridComponente={GridLivroDisponiveis}
+      GridComponente={(props) => <GridLivro {...props} tipo={'D'} />}
     ></BarraDePesquisa>
   );
 };

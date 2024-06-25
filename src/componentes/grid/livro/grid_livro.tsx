@@ -5,12 +5,14 @@ import { excluirLivro, useLivrosPorNome } from "../../../hooks/useLivros";
 
 interface GridProps {
   nome: string;
+  tipo: string; // '' = todos, R = Reservados, D: Disponíveis
 }
 
-const GridLivro: React.FC<GridProps> = ({ nome }) => {
-  const navigate = useNavigate();
+const GridLivro: React.FC<GridProps> = ({ nome, tipo }) => {
 
-  const listaLivros = useLivrosPorNome(nome);
+  const navigate = useNavigate();
+  
+  const listaLivros = useLivrosPorNome(nome, tipo);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -19,7 +21,12 @@ const GridLivro: React.FC<GridProps> = ({ nome }) => {
   });
 
   const clickEditar = (id: string) => {
-    navigate(`/livro/edicao/${id}`);
+    if (tipo === 'D') {
+      navigate(`/livro/aluguel/${id}`);
+    }
+    else {
+      navigate(`/livro/edicao/${id}`);
+    }
   };
 
   async function clickExcluir(id: string) {
@@ -58,15 +65,20 @@ const GridLivro: React.FC<GridProps> = ({ nome }) => {
       cell: (row: { id: any }) => (
         <>
           <button onClick={() => clickEditar(row.id)} className="btn-editar">
-            Editar
+          {
+            (tipo==='')?'Editar': (tipo==='D')?'Reservar':''
+          }
           </button>
-          <button
+          {
+          (!tipo) && <button
             onClick={() => clickExcluir(row.id)}
             className="btn-excluir m-left"
           >
             Excluir
           </button>
+          }
         </>
+        
       ),
       backgroundColor: "rgba(237, 245, 248, 1)",
       heigth: "10px",

@@ -5,18 +5,6 @@ import { IDadosLivro } from "../interfaces/IDadosLivro";
 
 const baseURL = config.appURL;
 
-export const useLivros = () => {
-  const [listaLivros, setLivros] = useState<IDadosLivro[]>([]);
-
-  useEffect(() => {
-    fetch(`${baseURL}/livro/nome`)
-      .then((response) => response.json())
-      .then((data) => setLivros(data));
-  }, []);
-
-  return listaLivros;
-};
-
 export const cadastraLivro = ({
   nome,
   isbn,
@@ -65,14 +53,14 @@ export const atualizaLivro = ({
     headers: { "content-type": "application/json" },
     body: JSON.stringify({ nome, isbn, dataDePublicacao, autorPorLivros }),
   })
-  .then((resp) => {
-    if (!resp.ok) {
-      throw new Error('Erro na atualização dos dados do livro');
-    }
-    return resp.json();
-  })
-  .then((data) => toast.success("Dados do livro atualizado com sucesso"))
-  .catch((err) => toast.error('Erro na atualização dos dados do livro'));
+    .then((resp) => {
+      if (!resp.ok) {
+        throw new Error("Erro na atualização dos dados do livro");
+      }
+      return resp.json();
+    })
+    .then((data) => toast.success("Dados do livro atualizado com sucesso"))
+    .catch((err) => toast.error("Erro na atualização dos dados do livro"));
 
   return { nome, isbn, dataDePublicacao, autorPorLivros };
 };
@@ -92,18 +80,29 @@ export const excluirLivro = ({ id }: { id: string | undefined }) => {
     .catch((err) => toast.error(err.message));
 };
 
-export const useLivrosPorNome = (nome: string) => {
+export const useLivrosPorNome = (nome: string, tipo: string) => {
   const [listaLivros, setListaLivros] = useState<IDadosLivro[]>([]);
 
   useEffect(() => {
-    let complemento_path: string = "/";
+    let complemento_path: string = "/livro/";
+
     if (nome) {
-      complemento_path = `/nome/${nome}`;
+      complemento_path = `${complemento_path}nome/${nome}`;
+    } else if (tipo === "D") {
+      complemento_path = `${complemento_path}disponiveis/"`;
+      if (nome) {
+        complemento_path = `${complemento_path}nome/${nome}`;
+      }
+    } else if (tipo === "R") {
+      complemento_path = `${complemento_path}reservados/"`;
+      if (nome) {
+        complemento_path = `${complemento_path}nome/${nome}`;
+      }
     }
 
     const fetchData = async () => {
       try {
-        const response = await fetch(`${baseURL}/livro${complemento_path}`);
+        const response = await fetch(`${baseURL}${complemento_path}`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -115,79 +114,7 @@ export const useLivrosPorNome = (nome: string) => {
       }
     };
     fetchData();
-  }, [nome]);
-  return listaLivros;
-};
-
-export const useLivrosReservadosPorNome = (nome: string ) => {
-  const [listaLivros, setListaLivros] = useState<IDadosLivro[]>([]);
-
-  const [, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    let complemento_path: string = "reservados/";
-    if (nome) {
-      complemento_path = `${complemento_path}${nome}`;
-    }
-
-    const fetchData = async () => {
-      setError(null);
-
-      try {
-        const response = await fetch(`${baseURL}/livro/${complemento_path}`);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        setListaLivros(data);
-      } catch (err) {
-        if (err instanceof Error) {
-          setError(" Erro: " + err.message);
-        } else {
-          setError("Erro desconhecido!");
-        }
-        setListaLivros([]);
-      }
-    };
-    fetchData();
-  }, [nome]);
-  return listaLivros;
-};
-
-export const useLivrosDisponiveisPorNome = (nome: string ) => {
-  const [listaLivros, setListaLivros] = useState<IDadosLivro[]>([]);
-
-  const [, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    let complemento_path: string = "disponiveis/";
-    if (nome) {
-      complemento_path = `${complemento_path}${nome}`;
-    }
-
-    const fetchData = async () => {
-      setError(null);
-
-      try {
-        const response = await fetch(`${baseURL}/livro/${complemento_path}`);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        setListaLivros(data);
-      } catch (err) {
-        if (err instanceof Error) {
-          setError(" Erro: " + err.message);
-        } else {
-          setError("Erro desconhecido!");
-        }
-        setListaLivros([]);
-      }
-    };
-    fetchData();
-  }, [nome]);
+  }, [nome, tipo]);
   return listaLivros;
 };
 

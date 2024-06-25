@@ -4,12 +4,14 @@ import style from "./css/barraPesquisa.module.css";
 
 interface GridProps {
   nome: string;
+  tipo?: string;
 }
 
 interface BarraDePesquisaProps {
   labelTitulo: string;
   linkPagina: string;
   GridComponente: React.ComponentType<GridProps>;
+  tipo?: string;
   children?: ReactNode;
 }
 
@@ -17,6 +19,7 @@ const BarraDePesquisa: FC<BarraDePesquisaProps> = ({
   labelTitulo,
   linkPagina,
   GridComponente,
+  tipo,
   children,
 }) => {
   const [entidadeFiltro, setEntidadeFiltro] = useState("");
@@ -37,7 +40,7 @@ const BarraDePesquisa: FC<BarraDePesquisaProps> = ({
         ></input>
         <LinkCadastrar to={linkPagina}>Cadastrar</LinkCadastrar>
       </div>
-      <GridComponente nome={entidadeFiltro}></GridComponente>
+        <GridComponente nome={entidadeFiltro} tipo={tipo}></GridComponente>
       {children}
     </div>
   );

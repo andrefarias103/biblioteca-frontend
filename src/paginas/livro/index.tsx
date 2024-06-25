@@ -7,7 +7,7 @@ const Livro: React.FC = () => {
     <BarraDePesquisa
       labelTitulo="Livro"
       linkPagina="/livro/cadastro"
-      GridComponente={GridLivro}
+      GridComponente={(props) => <GridLivro {...props} tipo={'*'} />}
     ></BarraDePesquisa>
   );
 };
