@@ -1,47 +1,47 @@
 .nav {
-    background-color: #27355d;
-    height: 60px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    border: 2px solid black;
+  background-color: #27355d;
+  height: 60px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 2px solid black;
 }
 
 .navIcon {
-    margin-left: 2rem;
-    font-size: 2rem;
-    height: 60px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100px;
+  margin-left: 2rem;
+  font-size: 2rem;
+  height: 60px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100px;
 }
 
 .sideBarNav {
-    background: #51595d;
-    width: 300px;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: -100%;
-    transition: 350ms;
-    z-index: 10;
+  background: #51595d;
+  width: 300px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 350ms;
+  z-index: 10;
 }
 
 .sideBarNav[data-open="true"] {
-    left: 0;
+  left: 0;
 }
 
 .sidebar-wrap {
-    width: 100%; 
+  width: 100%;
 }
 
 h1 {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    color: white;
-    width: 100%;
-   } 
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  color: white;
+  width: 100%;
+}

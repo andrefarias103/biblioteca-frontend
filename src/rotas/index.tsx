@@ -13,26 +13,25 @@ import LivroReservados from "../paginas/livro/livrosReservados";
 import Locatario from "../paginas/locatario";
 
 export const AppRoutes: React.FC = () => {
-
-  return( 
-      <>      
-        <Sidebar />
-        <Routes>            
-          <Route element = <Aluguel/> path="/" />  
-          <Route element = <Autor/> path="/autor" />    
-          <Route Component={AutorForm} path="/autor/cadastro" />  
-          <Route Component={AutorForm} path="/autor/edicao/:id" />   
-          <Route element = <Livro/> path="/livro" />  
-          <Route Component={LivroForm} path="/livro/cadastro" />  
-          <Route Component={LivroForm} path="/livro/edicao/:id" />           
-          <Route element = <Locatario/> path="/locatario" />  
-          <Route Component={LocatarioForm} path="/locatario/cadastro" />  
-          <Route Component={LocatarioForm} path="/locatario/edicao/:id" />                
-          <Route element = <LivroReservados/> path="/livro/reservados" />           
-          <Route element = <LivroDisponiveis/> path="/livro/disponiveis" />    
-          <Route element = <Aluguel/> path="/livro/aluguel" />  
-          <Route Component={AluguelForm} path="/livro/aluguel/:id" />
-        </Routes>
-      </>
-  )
-}
+  return (
+    <>
+      <Sidebar />
+      <Routes>
+        <Route element=<Aluguel /> path="/" />
+        <Route element=<Autor /> path="/autor" />
+        <Route Component={AutorForm} path="/autor/cadastro" />
+        <Route Component={AutorForm} path="/autor/edicao/:id" />
+        <Route element=<Livro /> path="/livro" />
+        <Route Component={LivroForm} path="/livro/cadastro" />
+        <Route Component={LivroForm} path="/livro/edicao/:id" />
+        <Route element=<Locatario /> path="/locatario" />
+        <Route Component={LocatarioForm} path="/locatario/cadastro" />
+        <Route Component={LocatarioForm} path="/locatario/edicao/:id" />
+        <Route element=<LivroReservados /> path="/livro/reservados" />
+        <Route element=<LivroDisponiveis /> path="/livro/disponiveis" />
+        <Route element=<Aluguel /> path="/livro/aluguel" />
+        <Route Component={AluguelForm} path="/livro/aluguel/:id" />
+      </Routes>
+    </>
+  );
+};

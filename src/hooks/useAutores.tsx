@@ -51,8 +51,8 @@ export const atualizaAutor = ({
   id,
   nome,
   cpf,
-  anoDeNascimento, 
-  sexo
+  anoDeNascimento,
+  sexo,
 }: {
   id: string | undefined;
   nome: string | undefined;
@@ -60,7 +60,6 @@ export const atualizaAutor = ({
   anoDeNascimento: string | undefined;
   sexo: string | undefined;
 }) => {
-
   fetch(`${baseURL}/autor/${id}`, {
     method: "PUT",
     headers: { "content-type": "application/json" },
@@ -90,25 +89,23 @@ export const excluirAutor = ({ id }: { id: number | undefined }) => {
     .catch((err) => toast.error(err.message));
 };
 
-export const useAutoresPorNome = ({ nome } : { nome: string | undefined}) => {
-   const [listaAutores, setAutores] = useState<IDadosAutor[]>([]);
-   useEffect(() => {
-        let complemento_path: string = '/';
-        if (nome) {
-          complemento_path = `/nome/${nome}`;
-        }
-       fetch(`${baseURL}/autor${complemento_path}`)
-          .then((resp) => resp.json())
-          .then((data) => setAutores(data));               
-   }, [nome]);
-   return listaAutores;    
+export const useAutoresPorNome = ({ nome }: { nome: string | undefined }) => {
+  const [listaAutores, setAutores] = useState<IDadosAutor[]>([]);
+  useEffect(() => {
+    let complemento_path: string = "/";
+    if (nome) {
+      complemento_path = `/nome/${nome}`;
+    }
+    fetch(`${baseURL}/autor${complemento_path}`)
+      .then((resp) => resp.json())
+      .then((data) => setAutores(data));
+  }, [nome]);
+  return listaAutores;
 };
 
 export async function autorPorid(id: string) {
-    const resposta = fetch(`${baseURL}/autor/${id}`)
+  const resposta = fetch(`${baseURL}/autor/${id}`)
     .then((resp) => resp.json())
-    .catch(err => console.log(err));
+    .catch((err) => console.log(err));
   return resposta;
 }
-
-

@@ -1,17 +1,14 @@
-/* Estilo para a linha do cabeçalho */
 .headRow {
   background-color: rgba(239, 127, 23, 1);
   min-height: 80px;
 }
 
-/* Estilo para as células do cabeçalho */
 .headCells {
   font-size: 24px;
   font-family: sans-serif;
   color: rgba(255, 255, 255, 1);
 }
 
-/* Estilo para as células */
 .cells {
   background-color: rgba(255, 255, 255, 1);
   width: 100%;

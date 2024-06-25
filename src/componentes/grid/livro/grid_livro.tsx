@@ -12,14 +12,12 @@ const GridLivro: React.FC<GridProps> = ({ nome }) => {
 
   const listaLivros = useLivrosPorNome({ nome });
 
-  useEffect( () => {
+  useEffect(() => {
     const timer = setTimeout(() => {
       console.log("🚀 ~ teste:", listaLivros);
-    }, 
-    5000);
+    }, 5000);
     return () => clearTimeout(timer);
   });
-
 
   const clickEditar = (id: string) => {
     navigate(`/livro/edicao/${id}`);
@@ -66,42 +64,18 @@ const GridLivro: React.FC<GridProps> = ({ nome }) => {
       selector: (row: { nome: string }) => row.nome,
       sortable: true,
       width: "25rem",
-      // headCells: {
-      //   style: {
-      //     fontSize: "20px",
-      //     fontWeight: "500",
-      //     textTransform: "uppercase",
-      //     paddingLeft: "0 8px",
-      //   },
-      // },
     },
     {
       name: "Isbn",
       selector: (row: { isbn: string }) => row.isbn,
       sortable: true,
       width: "20rem",
-      // headCells: {
-      //   style: {
-      //     fontSize: "20px",
-      //     fontWeight: "500",
-      //     textTransform: "uppercase",
-      //     paddingLeft: "0 8px",
-      //   },
-      // },
     },
     {
       name: "Data de Publicação",
       selector: (row: { dataDePublicacao: string }) => row.dataDePublicacao,
       sortable: true,
       width: "15rem",
-      // headCells: {
-      //   style: {
-      //     fontSize: "20px",
-      //     fontWeight: "500",
-      //     textTransform: "uppercase",
-      //     paddingLeft: "0 8px",
-      //   },
-      // },
     },
     {
       cell: (row: { id: any }) => (

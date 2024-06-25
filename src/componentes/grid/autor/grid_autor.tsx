@@ -56,56 +56,24 @@ const GridAutor: React.FC<GridProps> = ({ nome }) => {
       selector: (row: { nome: string }) => row.nome,
       sortable: true,
       width: "25rem",
-      // headCells: {
-      //   style: {
-      //     fontSize: "20px",
-      //     fontWeight: "500",
-      //     textTransform: "uppercase",
-      //     paddingLeft: "0 8px",
-      //   },
-      // },
     },
     {
       name: "Sexo",
       selector: (row: { sexo: string }) => row.sexo,
       sortable: true,
       width: "8rem",
-      // headCells: {
-      //   style: {
-      //     fontSize: "20px",
-      //     fontWeight: "500",
-      //     textTransform: "uppercase",
-      //     paddingLeft: "0 8px",
-      //   },
-      // },
     },
     {
       name: "Ano de Nascimento",
       selector: (row: { anoDeNascimento: number }) => row.anoDeNascimento,
       sortable: true,
       width: "10rem",
-      // headCells: {
-      //   style: {
-      //     fontSize: "20px",
-      //     fontWeight: "500",
-      //     textTransform: "uppercase",
-      //     paddingLeft: "0 8px",
-      //   },
-      // },
     },
     {
       name: "CPF",
       selector: (row: { cpf: string }) => row.cpf,
       sortable: true,
       width: "20rem",
-      // headCells: {
-      //   style: {
-      //     fontSize: "20px",
-      //     fontWeight: "500",
-      //     textTransform: "uppercase",
-      //     paddingLeft: "0 8px",
-      //   },
-      // },
     },
     {
       cell: (row: { id: any }) => (

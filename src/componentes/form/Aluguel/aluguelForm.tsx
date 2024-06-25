@@ -33,26 +33,30 @@ const AluguelForm = () => {
     livro: [""],
   });
 
-  const [livrosSelecionado, setLivrosSelecionado] = useState<ICheckBoxItem[]>([]); 
+  const [livrosSelecionado, setLivrosSelecionado] = useState<ICheckBoxItem[]>(
+    []
+  );
 
   const listaLivros = useLivrosDisponiveisPorNome({ nome: "" });
-  const items: ICheckBoxItem[] = listaLivros.map((livro) => ({ // mapeado todos os livros disponiveis e adicionados na lista
+  const items: ICheckBoxItem[] = listaLivros.map((livro) => ({
+    // mapeado todos os livros disponiveis e adicionados na lista
     value: livro.id,
     label: livro.nome,
   }));
 
-
-  const listaLocatario = useLocatariosPorNome({ nome: ''});
+  const listaLocatario = useLocatariosPorNome({ nome: "" });
 
   useEffect(() => {
     async function carregarDados() {
       if (id) {
         const livro = await livroPorId(id);
         if (livro) {
-          setLivrosSelecionado([{
-            value: livro.id,
-            label: livro.nome
-        }])  
+          setLivrosSelecionado([
+            {
+              value: livro.id,
+              label: livro.nome,
+            },
+          ]);
         }
       }
     }
@@ -70,13 +74,12 @@ const AluguelForm = () => {
     }));
   };
 
-
   const handleLivrosChange = (items: ICheckBoxItem[]) => {
     const listaDeLivrosEscolhidos = items.map((item) => {
-      setLivrosSelecionado(items);        
+      setLivrosSelecionado(items);
       return item.value;
     });
-    
+
     setAluguel({
       ...aluguel,
       livro: listaDeLivrosEscolhidos,
@@ -85,7 +88,7 @@ const AluguelForm = () => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    cadastraAluguel({...aluguel});          
+    cadastraAluguel({ ...aluguel });
     navigate(`/`);
   };
 
@@ -103,26 +106,32 @@ const AluguelForm = () => {
               ></CheckBoxList>
             </div>
             <div className={style.areaCampos}>
-                <label className={style.labelForm}>Data de Retirada:</label>
-                <input type="datetime-local" name="dataRetirada" value={aluguel.dataRetirada} onChange = {handleChange}></input>
-            </div>    
-            
+              <label className={style.labelForm}>Data de Retirada:</label>
+              <input
+                type="datetime-local"
+                name="dataRetirada"
+                value={aluguel.dataRetirada}
+                onChange={handleChange}
+              ></input>
+            </div>
+
             <div className={style.areaCampos}>
-                <label className={style.labelForm}>Data de Devolução:</label>
-                <input type="datetime-local" name="dataDevolucao" value={aluguel.dataDevolucao} onChange = {handleChange}></input>
-            </div>                      
+              <label className={style.labelForm}>Data de Devolução:</label>
+              <input
+                type="datetime-local"
+                name="dataDevolucao"
+                value={aluguel.dataDevolucao}
+                onChange={handleChange}
+              ></input>
+            </div>
             <div className={style.areaCampos}>
-                <label className={style.labelForm}>Locatário:</label>
-                <select name="locatarioId"  onChange={handleChange}>
-                {
-                    listaLocatario.map((option: IDadosLocatario) => (
-                        <option value={option.id}>
-                            {option.nome}
-                        </option>
-                    ))
-                }
-                </select>
-            </div>                                                              
+              <label className={style.labelForm}>Locatário:</label>
+              <select name="locatarioId" onChange={handleChange}>
+                {listaLocatario.map((option: IDadosLocatario) => (
+                  <option value={option.id}>{option.nome}</option>
+                ))}
+              </select>
+            </div>
           </div>
           <div className={style.areabotao}>
             <Botao type="submit">Reservar</Botao>

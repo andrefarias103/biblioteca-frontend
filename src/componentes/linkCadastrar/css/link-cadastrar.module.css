@@ -1,24 +1,23 @@
 .link {
   display: flex;
-  font-family:  Georgia, 'Times New Roman', Times, serif; 
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-weight: bold;
-  font-size: 16px; 
-  background-color: #F99500;
+  font-size: 16px;
+  background-color: #f99500;
   border-radius: 10px;
-  box-shadow: 2px 4px 4px #0000009F;
-  color: #FFFFFF;
+  box-shadow: 2px 4px 4px #0000009f;
+  color: #ffffff;
   cursor: pointer;
   width: 212px;
   height: 35px;
-  border: 1px solid #5CB1FF;
-  box-sizing: border-box; 
+  border: 1px solid #5cb1ff;
+  box-sizing: border-box;
   text-decoration: none;
   justify-content: center;
   align-items: center;
-  
+
   &:active {
     background-color: #e5b55c;
-    box-shadow: 2px 2px 4px #0000009F inset;
+    box-shadow: 2px 2px 4px #0000009f inset;
   }
 }
-

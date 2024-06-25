@@ -14,8 +14,7 @@ export const cadastraAluguel = ({
   locatarioId: string;
   livro: string[];
 }) => {
-
-  console.log('aluguel',{
+  console.log("aluguel", {
     dataRetirada,
     dataDevolucao,
     locatarioId,

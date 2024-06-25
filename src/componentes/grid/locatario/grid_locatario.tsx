@@ -1,6 +1,9 @@
 import DataTable from "react-data-table-component";
 import { useNavigate } from "react-router-dom";
-import { excluirLocatario, useLocatariosPorNome } from "../../../hooks/useLocatarios";
+import {
+  excluirLocatario,
+  useLocatariosPorNome,
+} from "../../../hooks/useLocatarios";
 
 interface GridProps {
   nome: string;
@@ -68,19 +71,19 @@ const GridLocatario: React.FC<GridProps> = ({ nome }) => {
       selector: (row: { cpf: string }) => row.cpf,
       sortable: true,
       width: "20rem",
-    },    
+    },
     {
       name: "Telefone",
       selector: (row: { telefone: string }) => row.telefone,
       sortable: true,
       width: "8rem",
-    },    
+    },
     {
       name: "Email",
       selector: (row: { email: string }) => row.email,
       sortable: true,
       width: "8rem",
-    },       
+    },
     {
       name: "Data de Nascimento",
       selector: (row: { dataDeNascimento: string }) => row.dataDeNascimento,
