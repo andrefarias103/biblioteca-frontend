@@ -24,27 +24,6 @@ const GridLocatario: React.FC<GridProps> = ({ nome }) => {
     }
   }
 
-  const customStyles = {
-    headRow: {
-      style: {
-        backgroundColor: "rgb(151 160 166)",
-        minHeight: "28 px",
-      },
-    },
-    headCells: {
-      style: {
-        fontSize: "14px",
-        fontFamily: "sans-serif",
-        color: "rgba(255, 255, 255, 1)",
-      },
-    },
-    cells: {
-      style: {
-        backgroundColor: "rgba(255, 255, 255, 1)",
-        width: "100%",
-      },
-    },
-  };
 
   const colunas = [
     {
@@ -127,7 +106,6 @@ const GridLocatario: React.FC<GridProps> = ({ nome }) => {
         noDataComponent={"Nenhum registro encontrado"}
         paginationServer={true}
         fixedHeader={true}
-        customStyles={customStyles}
       />
     </div>
   );
