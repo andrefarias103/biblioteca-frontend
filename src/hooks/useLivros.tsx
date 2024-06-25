@@ -65,11 +65,14 @@ export const atualizaLivro = ({
     headers: { "content-type": "application/json" },
     body: JSON.stringify({ nome, isbn, dataDePublicacao, autorPorLivros }),
   })
-    .then((resp) => resp.json())
-    .then((data) => console.log(data))
-    .catch((err) => console.log(err));
-
-  toast.success("Dados do livro atualizado com sucesso");
+  .then((resp) => {
+    if (!resp.ok) {
+      throw new Error('Erro na atualização dos dados do livro');
+    }
+    return resp.json();
+  })
+  .then((data) => toast.success("Dados do livro atualizado com sucesso"))
+  .catch((err) => toast.error('Erro na atualização dos dados do livro'));
 
   return { nome, isbn, dataDePublicacao, autorPorLivros };
 };

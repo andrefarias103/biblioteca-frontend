@@ -65,11 +65,14 @@ export const atualizaAutor = ({
     headers: { "content-type": "application/json" },
     body: JSON.stringify({ nome, cpf, anoDeNascimento, sexo }),
   })
-    .then((resp) => resp.json())
-    .then((data) => console.log(data))
-    .catch((err) => console.log(err));
-
-  toast.success("Dados do autor atualizado com sucesso");
+    .then((resp) => {
+      if (!resp.ok) {
+        throw new Error('Erro na atualização dos dados do autor');
+      }
+      return resp.json();
+    })
+    .then((data) => toast.success("Dados do autor atualizado com sucesso"))
+    .catch((err) => toast.error('Erro na atualização dos dados do autor'));
 
   return { nome, cpf, anoDeNascimento, sexo };
 };

@@ -14,7 +14,6 @@ const GridLivro: React.FC<GridProps> = ({ nome }) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      console.log("🚀 ~ teste:", listaLivros);
     }, 5000);
     return () => clearTimeout(timer);
   });

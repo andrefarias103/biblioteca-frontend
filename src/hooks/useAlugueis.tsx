@@ -14,13 +14,6 @@ export const cadastraAluguel = ({
   locatarioId: string;
   livro: string[];
 }) => {
-  console.log("aluguel", {
-    dataRetirada,
-    dataDevolucao,
-    locatarioId,
-    livro,
-  });
-
   fetch(`${baseURL}/aluguel/`, {
     method: "POST",
     headers: {

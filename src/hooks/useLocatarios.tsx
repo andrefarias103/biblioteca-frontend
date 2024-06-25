@@ -32,17 +32,6 @@ export const cadastraLocatario = ({
   dataDeNascimento: string | undefined;
   cpf: string | undefined;
 }) => {
-  console.log({
-    nome,
-    sexo,
-    telefone,
-    email,
-    dataDeNascimento,
-    cpf,
-  });
-
-  console.log(`${baseURL}/locatario/`);
-
   fetch(`${baseURL}/locatario/`, {
     method: "POST",
     headers: {
@@ -98,11 +87,14 @@ export const atualizaLocatario = ({
       cpf,
     }),
   })
-    .then((resp) => resp.json())
-    .then((data) => console.log(data))
-    .catch((err) => console.log(err));
-
-  toast.success("Dados do locatario atualizado com sucesso");
+  .then((resp) => {
+    if (!resp.ok) {
+      throw new Error('Erro na atualização dos dados do locatário');
+    }
+    return resp.json();
+  })
+  .then((data) => toast.success("Dados do locatário atualizado com sucesso"))
+  .catch((err) => toast.error('Erro na atualização dos dados do locatário'));
 
   return { nome, sexo, telefone, email, dataDeNascimento, cpf };
 };
