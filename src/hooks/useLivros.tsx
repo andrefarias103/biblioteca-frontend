@@ -95,8 +95,6 @@ export const excluirLivro = ({ id }: { id: string | undefined }) => {
 export const useLivrosPorNome = ({ nome }: { nome: string }) => {
   const [listaLivros, setListaLivros] = useState<IDadosLivro[]>([]);
 
-  const [, setError] = useState<string | null>(null);
-
   useEffect(() => {
     let complemento_path: string = "/";
     if (nome) {
@@ -104,8 +102,6 @@ export const useLivrosPorNome = ({ nome }: { nome: string }) => {
     }
 
     const fetchData = async () => {
-      setError(null);
-
       try {
         const response = await fetch(`${baseURL}/livro${complemento_path}`);
         if (!response.ok) {
@@ -115,11 +111,6 @@ export const useLivrosPorNome = ({ nome }: { nome: string }) => {
         const data = await response.json();
         setListaLivros(data);
       } catch (err) {
-        if (err instanceof Error) {
-          setError(" Erro: " + err.message);
-        } else {
-          setError("Erro desconhecido!");
-        }
         setListaLivros([]);
       }
     };
