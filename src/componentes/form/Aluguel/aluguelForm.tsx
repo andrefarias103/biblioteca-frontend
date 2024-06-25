@@ -6,7 +6,7 @@ import {
   useLivrosDisponiveisPorNome,
 } from "../../../hooks/useLivros";
 import { useLocatariosPorNome } from "../../../hooks/useLocatarios";
-import { IDadosLocatario } from "../../../interfaces/TLocatarios";
+import { IDadosLocatario } from "../../../interfaces/IDadosLocatario";
 import obterDataHoraAtual from "../../../utils/operacoes-data.utils";
 import Botao from "../../botao";
 import CheckBoxList, { ICheckBoxItem } from "../../checkbox";

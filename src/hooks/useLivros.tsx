@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import config from "../config";
-import { IDadosLivro } from "../interfaces/TLivros";
+import { IDadosLivro } from "../interfaces/IDadosLivro";
 
 const baseURL = config.appURL;
 

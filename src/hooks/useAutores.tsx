@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import config from "../config";
-import { IDadosAutor } from "../interfaces/TAutores";
+import { IDadosAutor } from "../interfaces/IDadosAutor";
 
 const baseURL = config.appURL;
 

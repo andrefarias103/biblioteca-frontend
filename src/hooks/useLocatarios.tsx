@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import config from "../config";
-import { IDadosLocatario } from "../interfaces/TLocatarios";
+import { IDadosLocatario } from "../interfaces/IDadosLocatario";
 
 const baseURL = config.appURL;
 
