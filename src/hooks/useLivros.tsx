@@ -92,7 +92,7 @@ export const excluirLivro = ({ id }: { id: string | undefined }) => {
     .catch((err) => toast.error(err.message));
 };
 
-export const useLivrosPorNome = ({ nome }: { nome: string }) => {
+export const useLivrosPorNome = (nome: string) => {
   const [listaLivros, setListaLivros] = useState<IDadosLivro[]>([]);
 
   useEffect(() => {
@@ -119,7 +119,7 @@ export const useLivrosPorNome = ({ nome }: { nome: string }) => {
   return listaLivros;
 };
 
-export const useLivrosReservadosPorNome = ({ nome }: { nome: string }) => {
+export const useLivrosReservadosPorNome = (nome: string ) => {
   const [listaLivros, setListaLivros] = useState<IDadosLivro[]>([]);
 
   const [, setError] = useState<string | null>(null);
@@ -155,7 +155,7 @@ export const useLivrosReservadosPorNome = ({ nome }: { nome: string }) => {
   return listaLivros;
 };
 
-export const useLivrosDisponiveisPorNome = ({ nome }: { nome: string }) => {
+export const useLivrosDisponiveisPorNome = (nome: string ) => {
   const [listaLivros, setListaLivros] = useState<IDadosLivro[]>([]);
 
   const [, setError] = useState<string | null>(null);

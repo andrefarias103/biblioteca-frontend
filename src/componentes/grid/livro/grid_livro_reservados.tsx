@@ -6,7 +6,7 @@ interface GridProps {
 }
 
 const GridLivroReservados: React.FC<GridProps> = ({ nome }) => {
-  const listaLivros = useLivrosReservadosPorNome({ nome });
+  const listaLivros = useLivrosReservadosPorNome(nome);
 
   const colunas = [
     {

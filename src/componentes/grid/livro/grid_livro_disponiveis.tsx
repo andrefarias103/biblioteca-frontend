@@ -6,10 +6,10 @@ interface GridProps {
   nome: string;
 }
 
-const GridLivroDisponiveis: React.FC<GridProps> = ({ nome }) => {
+const GridLivroDisponiveis: React.FC<GridProps> = ({nome}) => {
   const navigate = useNavigate();
 
-  const listaLivros = useLivrosDisponiveisPorNome({ nome });
+  const listaLivros = useLivrosDisponiveisPorNome(nome);
 
   const clickEditar = (id: string) => {
     navigate(`/livro/aluguel/${id}`);

@@ -10,7 +10,7 @@ interface GridProps {
 const GridLivro: React.FC<GridProps> = ({ nome }) => {
   const navigate = useNavigate();
 
-  const listaLivros = useLivrosPorNome({ nome });
+  const listaLivros = useLivrosPorNome(nome);
 
   useEffect(() => {
     const timer = setTimeout(() => {

@@ -37,7 +37,7 @@ const AluguelForm = () => {
     []
   );
 
-  const listaLivros = useLivrosDisponiveisPorNome({ nome: "" });
+  const listaLivros = useLivrosDisponiveisPorNome('');
   const items: ICheckBoxItem[] = listaLivros.map((livro) => ({
     // mapeado todos os livros disponiveis e adicionados na lista
     value: livro.id,
